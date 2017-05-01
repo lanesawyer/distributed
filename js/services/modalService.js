@@ -1,5 +1,10 @@
 'use strict';
 
+import '../../stylesheets/vendor/colors.min.css';
+import '../../stylesheets/vendor/ngDialog-theme-default.min.css';
+import '../../stylesheets/vendor/ngDialog-theme-plain.min.css';
+import '../../stylesheets/vendor/ngDialog.min.css';
+
 angular
   .module('fireideaz')
   .service('ModalService', ['ngDialog', function(ngDialog) {
