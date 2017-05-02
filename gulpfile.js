@@ -44,6 +44,7 @@ var buildHTML = function() {
 var bundleVendorJS = function() {
   gulp.src(['node_modules/angular/angular.min.js',
 	   'js/vendor/firebase.js',
+	   'js/vendor/firebaseInitialization.js',
 	   'node_modules/angularfire/dist/angularfire.min.js',
 	   'node_modules/angular-*/**/angular-*.min.js',
 	   '!node_modules/**/angular-mocks.js',
