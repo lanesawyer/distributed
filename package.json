@@ -5,7 +5,7 @@
   "private": false,
   "scripts": {
     "build": "webpack",
-    "jshint": "jshint js/. --exclude js/vendor",
+    "jshint": "jshint js/. --exclude js/vendor && stylelint stylesheets/*.scss",
     "deploy": "./deploy.sh",
     "test": "karma start karma.conf.js --singleRun=true"
   },
@@ -26,6 +26,7 @@
     "gulp-sass": "^2.0.4",
     "gulp-uglify": "latest",
     "gulp-uglifycss": "latest",
+    "gulp-autoprefixer": "latest",
     "gulp-watch": "latest",
     "jshint": "2.9.4",
     "jshint-stylish": "^2.2.0",
@@ -45,6 +46,7 @@
     "sinon": "1.17.6",
     "style-loader": "^0.16.1",
     "tiny-lr": "latest",
+    "stylelint": "latest",
     "webpack": "^2.4.1"
   },
   "dependencies": {

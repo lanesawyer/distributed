@@ -11,7 +11,8 @@ var gulp = require('gulp'),
   connectlivereload = require('connect-livereload'),
   express = require('express'),
   path = require('path'),
-  watch = require('gulp-watch');
+  watch = require('gulp-watch'),
+  autoprefixer = require('gulp-autoprefixer');
 
 gulp.task('express', function() {
   var app = express();
@@ -40,6 +41,24 @@ var buildHTML = function() {
   gulp.src('components/*')
   .pipe(gulp.dest('dist/components'));
 }
+
+var bundleVendorCSS = function () {
+  gulp.src(['node_modules/font-awesome/css/font-awesome.min.css',
+	   'stylesheets/vendor/*.css'])
+  .pipe(concatCss('vendor.css'))
+  .pipe(gulp.dest('dist/css'))
+  .pipe(uglifycss())
+  .pipe(gulp.dest('dist/css'));
+};
+
+var processSass = function() {
+  gulp.src(['stylesheets/main.scss'])
+  .pipe(sass().on('error', sass.logError))
+  .pipe(gp_rename('main.css'))
+  .pipe(autoprefixer())
+  .pipe(uglifycss())
+  .pipe(gulp.dest('dist/css'));
+};
 
 var bundleVendorJS = function() {
   gulp.src(['node_modules/angular/angular.min.js',
@@ -113,7 +132,7 @@ gulp.task('copy', function(){
   .pipe(gulp.dest('dist'));
   gulp.src('CNAME')
   .pipe(gulp.dest('dist'));
-  
+
   buildHTML();
 });
 
