@@ -5,10 +5,8 @@
     <title ng-bind="'Fun Retro &mdash; ' + boardId">Fun Retro</title>
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
     <link rel="icon" href="favicon.ico" type="image/x-icon">
-    <link rel="stylesheet" type="text/css" href="css/vendor.css">
-    <link rel="stylesheet" type="text/css" href="css/main.css">
-    <script src="vendor.js"></script>
-    <script src="main.js"></script>
+    <link rel="stylesheet" type="text/css" href="vendor.css">
+    <link rel="stylesheet" type="text/css" href="main.css">
   </head>
   <body ng-controller="MainCtrl">
     <div page-header></div>
@@ -19,6 +17,19 @@
     <spinner></spinner>
     <dialogs></dialogs>
   </body>
+  <script src="https://www.gstatic.com/firebasejs/3.9.0/firebase.js"></script>
+  <script>
+    // Initialize Firebase
+    var config = {
+      apiKey: "AIzaSyDKlqYdC-wUUOT7E7aRmRtEDtK6N8CAZ3U",
+      authDomain: "fun-retro-6216f.firebaseapp.com",
+      databaseURL: "https://fun-retro-6216f.firebaseio.com",
+      projectId: "fun-retro-6216f",
+      storageBucket: "fun-retro-6216f.appspot.com",
+      messagingSenderId: "741022796633"
+    };
+    firebase.initializeApp(config);
+  </script>
   <script>
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
       (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -37,4 +48,6 @@
           a.appendChild(r);
       })(window,document,'//static.hotjar.com/c/hotjar-','.js?sv=');
   </script>
+  <script src="vendor.js"></script>
+  <script src="main.js"></script>
 </html>

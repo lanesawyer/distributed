@@ -1,4 +1,9 @@
 @import 'bourbon/bourbon';
+@import 'vendor/colors.min.css';
+@import 'vendor/ngDialog-theme-default.min.css';
+@import 'vendor/ngDialog-theme-plain.min.css';
+@import 'vendor/ngDialog.min.css';
+@import '../node_modules/font-awesome/css/font-awesome.min.css';
 @import 'colors';
 @import 'responsive';
 @import 'base';
@@ -9,5 +14,4 @@
 @import 'home';
 @import 'spinner';
 @import 'menu';
-@import 'subscribe';
 @import 'voteSettings';
