@@ -20,6 +20,9 @@
    * =================
    */
 
+   // ES6
+  "esversion": 6,
+
   // Prohibit use of == and != in favor of === and !==.
   "eqeqeq": true,
 

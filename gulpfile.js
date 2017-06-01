@@ -14,16 +14,6 @@ var gulp = require('gulp'),
   watch = require('gulp-watch'),
   autoprefixer = require('gulp-autoprefixer');
 
-gulp.task('express', function() {
-  var app = express();
-  app.use(connectlivereload({ port: 35729 }));
-  app.use(express.static('./dist'));
-  var port = 4000;
-  app.listen(port, '0.0.0.0', function(){
-    console.log('App running and listening on port', port);
-  });
-});
-
 gulp.task('clean-dist', function () {
   return gulp.src('dist/*', {read: false})
   .pipe(clean());
@@ -67,7 +57,7 @@ gulp.task('copy', function(){
   .pipe(gulp.dest('dist'));
 });
 
-gulp.task('default', ['copy', 'express', 'livereload', 'watch']);
+gulp.task('default', ['copy', 'livereload', 'watch']);
 gulp.task('test', ['lint', 'watch-test']);
 gulp.task('testci', ['lint', 'test-once']);
 gulp.task('build', ['clean-dist', 'copy']);

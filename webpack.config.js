@@ -34,9 +34,20 @@ const config = {
           use: "css-loader!sass-loader"
         })
       }, {
-        test: /\.(eot|svg|ttf|woff|woff2)$/,
+        test: /\.(eot|svg|ttf|woff|woff2|ico)$/,
         loader: 'file-loader?name=[name].[ext]'
-      }]
+      },
+      {
+        test: /\.js$/,
+        enforce: "pre",
+        exclude: /node_modules|vendor/,
+        use: [
+          {
+            loader: "jshint-loader"
+          }
+        ]
+      }
+    ]
   },
   plugins: [
     //new webpack.optimize.UglifyJsPlugin(),
