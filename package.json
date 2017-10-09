@@ -4,6 +4,7 @@
   "version": "0.0.1",
   "private": false,
   "scripts": {
+    "build": "webpack --config webpack.config.js",
     "jshint": "jshint js/. --exclude js/vendor && stylelint stylesheets/*.scss",
     "deploy": "./deploy.sh",
     "test": "karma start karma.conf.js --singleRun=true",
@@ -15,6 +16,7 @@
     "connect-livereload": "latest",
     "gh-pages": "^0.12.0",
     "gulp": "^3.9.1",
+    "gulp-autoprefixer": "latest",
     "gulp-clean": "^0.3.2",
     "gulp-concat": "latest",
     "gulp-concat-css": "latest",
@@ -23,7 +25,6 @@
     "gulp-sass": "^2.0.4",
     "gulp-uglify": "latest",
     "gulp-uglifycss": "latest",
-    "gulp-autoprefixer": "latest",
     "gulp-watch": "latest",
     "jshint": "2.9.4",
     "jshint-stylish": "^2.2.0",
@@ -36,11 +37,14 @@
     "karma-phantomjs-launcher": "latest",
     "karma-sinon": "^1.0.4",
     "mocha": "^3.2.0",
+    "node-sass": "^4.5.3",
     "phantomjs-prebuilt": "^2.1.4",
     "roboto-fontface": "^0.4.2",
+    "sass-loader": "^6.0.6",
     "sinon": "1.17.6",
+    "stylelint": "latest",
     "tiny-lr": "latest",
-    "stylelint": "latest"
+    "webpack": "^3.6.0"
   },
   "dependencies": {
     "angular": "^1.4.9",
