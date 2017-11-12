@@ -1,6 +1,9 @@
 /* global EmojiPicker */
 'use strict';
 
+import Clipboard from 'clipboard';
+import EmojiPicker from 'vanilla-emoji-picker';
+
 angular
   .module('fireideaz')
 

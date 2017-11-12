@@ -42,47 +42,28 @@ var buildHTML = function() {
   .pipe(gulp.dest('dist/components'));
 }
 
-var bundleVendorCSS = function () {
-  gulp.src(['node_modules/font-awesome/css/font-awesome.min.css',
-	   'stylesheets/vendor/*.css'])
-  .pipe(concatCss('vendor.css'))
-  .pipe(gulp.dest('dist/css'))
-  .pipe(uglifycss())
-  .pipe(gulp.dest('dist/css'));
-};
-
-var processSass = function() {
-  gulp.src(['stylesheets/main.scss'])
-  .pipe(sass().on('error', sass.logError))
-  .pipe(gp_rename('main.css'))
-  .pipe(autoprefixer())
-  .pipe(uglifycss())
-  .pipe(gulp.dest('dist/css'));
-};
-
-
-var bundleVendorJS = function() {
-  gulp.src([
-     'js/vendor/jquery-3.2.1.min.js',
-     'node_modules/angular/angular.min.js',
-	   'js/vendor/firebase.js',
-	   'js/vendor/firebaseInitialization.js',
-	   'node_modules/angularfire/dist/angularfire.min.js',
-	   'node_modules/angular-*/**/angular-*.min.js',
-	   'node_modules/core-js/client/shim.min.js',
-	   '!node_modules/**/angular-mocks.js',
-	   'js/vendor/*.js',
-	   'node_modules/ng-dialog/**/ngDialog*.min.js',
-     'node_modules/ng-file-upload/**/ng-file-upload-all.min.js',
-     'node_modules/papaparse/papaparse.min.js',
-     'node_modules/clipboard/dist/clipboard.min.js',
-     'node_modules/vanilla-emoji-picker/dist/emojiPicker.min.js',
-     'node_modules/jspdf/dist/jspdf.min.js'])
-      .pipe(concat('vendor.js'))
-      .pipe(gulp.dest('dist'))
-      .pipe(uglify())
-      .pipe(gulp.dest('dist'));
-};
+// var bundleVendorJS = function() {
+//   gulp.src([
+//      //'js/vendor/jquery-3.2.1.min.js',
+//      //'node_modules/angular/angular.min.js',
+// 	   //'js/vendor/firebase.js',
+// 	   //'js/vendor/firebaseInitialization.js',
+// 	   //'node_modules/angularfire/dist/angularfire.min.js',
+// 	   //'node_modules/angular-*/**/angular-*.min.js',
+// 	   //'node_modules/core-js/client/shim.min.js',
+// 	   //'!node_modules/**/angular-mocks.js',
+// 	   //'js/vendor/*.js',
+// 	   //'node_modules/ng-dialog/**/ngDialog*.min.js',
+//      //'node_modules/ng-file-upload/**/ng-file-upload-all.min.js',
+//      //'node_modules/papaparse/papaparse.min.js',
+//      //'node_modules/clipboard/dist/clipboard.min.js',
+//      //'node_modules/vanilla-emoji-picker/dist/emojiPicker.min.js',
+//      //'node_modules/jspdf/dist/jspdf.min.js'])
+//       .pipe(concat('vendor.js'))
+//       .pipe(gulp.dest('dist'))
+//       .pipe(uglify())
+//       .pipe(gulp.dest('dist'));
+// };
 
 gulp.task('clean-dist', function () {
   return gulp.src('dist/*', {read: false})
@@ -90,16 +71,13 @@ gulp.task('clean-dist', function () {
 });
 
 gulp.task('bundle', function() {
-  bundleVendorCSS();
-  bundleVendorJS();
-  processSass();
+  //bundleVendorJS();
 });
 
 gulp.task('watch', function (cb) {
   watch('dist/*', notifyLiveReload);
   watch('**/*.html', notifyLiveReload);
   watch('components/*', buildHTML);
-  watch('**/*.scss', processSass);
   watch('**/*.scss', notifyLiveReload);
 });
 
